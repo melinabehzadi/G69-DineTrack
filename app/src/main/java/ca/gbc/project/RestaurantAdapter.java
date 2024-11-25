@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -37,6 +38,17 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
         holder.name.setText(restaurant.getName());
         holder.tags.setText(restaurant.getTags());
 
+        int rating = restaurant.getRating();
+        ImageView[] stars = new ImageView[]{holder.star1, holder.star2, holder.star3, holder.star4, holder.star5};
+
+        for (int i = 0; i < stars.length; i++) {
+            if (i < rating) {
+                stars[i].setImageResource(R.drawable.ic_star_filled); // Use your filled star drawable
+            } else {
+                stars[i].setImageResource(R.drawable.ic_star_empty); // Use your empty star drawable
+            }
+        }
+
         holder.detailsButton.setOnClickListener(v -> {
             Intent intent = new Intent(context, RestaurantDetailsActivity.class);
             intent.putExtra("restaurant_name", restaurant.getName());
@@ -57,12 +69,19 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView name, tags;
         Button detailsButton;
+        ImageView star1, star2, star3, star4, star5;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.tv_restaurant_name);
             tags = itemView.findViewById(R.id.tv_tags);
             detailsButton = itemView.findViewById(R.id.btn_details);
+
+            star1 = itemView.findViewById(R.id.star1);
+            star2 = itemView.findViewById(R.id.star2);
+            star3 = itemView.findViewById(R.id.star3);
+            star4 = itemView.findViewById(R.id.star4);
+            star5 = itemView.findViewById(R.id.star5);
         }
     }
 }

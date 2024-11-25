@@ -9,6 +9,12 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            />
         <!-- Restaurant Name -->
         <TextView
             android:id="@+id/tv_restaurant_name"
@@ -118,25 +124,31 @@
 
             <!-- Rating Stars -->
             <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/ic_star" />
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/ic_star" />
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/ic_star" />
-            <ImageView
+                android:id="@+id/star1"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:src="@drawable/ic_star_empty" />
             <ImageView
+                android:id="@+id/star2"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:src="@drawable/ic_star_empty" />
+            <ImageView
+                android:id="@+id/star3"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_star_empty" />
+            <ImageView
+                android:id="@+id/star4"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_star_empty" />
+            <ImageView
+                android:id="@+id/star5"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_star_empty" />
+
         </LinearLayout>
 
         <!-- Line Below Stars -->
