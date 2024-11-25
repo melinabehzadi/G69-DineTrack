@@ -1,8 +1,9 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     android:padding="16dp"
-    android:background="@android:color/white">
+    android:textAlignment="center">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,123 +15,127 @@
             android:id="@+id/tv_about_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="About"
-            android:textSize="20sp"
-            android:fontFamily="@font/arial"
-            android:textStyle="bold"
-            android:textColor="@android:color/black"
             android:layout_gravity="center"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/arial"
+            android:text="About"
+            android:textColor="@android:color/black"
+            android:textSize="34sp"
+            android:textStyle="bold" />
 
         <!-- Version -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Version"
-                android:textSize="16sp"
                 android:fontFamily="@font/arial"
+                android:gravity="start"
+                android:text="Version"
                 android:textColor="@android:color/black"
-                android:gravity="start" />
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1.0.0"
-                android:textSize="16sp"
                 android:fontFamily="@font/arial"
+                android:gravity="end"
+                android:text="1.0.0"
                 android:textColor="@android:color/black"
-                android:gravity="end" />
+                android:textSize="16sp" />
         </LinearLayout>
 
         <!-- Separator -->
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@android:color/darker_gray"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="16dp"
+            android:background="@android:color/darker_gray" />
 
         <!-- Team Section -->
+
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="352dp"
             android:layout_height="wrap_content"
-            android:text="Team"
-            android:textSize="18sp"
+            android:layout_marginBottom="8dp"
             android:fontFamily="@font/arial"
-            android:textStyle="bold"
-            android:layout_marginBottom="8dp" />
+            android:text="Team"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- Separator -->
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Valeria Arce - Developer\nMelina Behzadi Nejad - Developer\nOscar Piedrasanta Diaz - Developer\nMobinasadat Zargary - Developer"
-            android:textSize="16sp"
+            android:layout_height="188dp"
+            android:layout_marginBottom="16dp"
             android:fontFamily="@font/arial"
             android:gravity="center"
-            android:layout_marginBottom="16dp" />
+            android:text="Valeria Arce - Developer\nMelina Behzadi Nejad - Developer\nOscar Piedrasanta Diaz - Developer\nMobinasadat Zargary - Developer"
+            android:textSize="20sp" />
 
-        <!-- Separator -->
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@android:color/darker_gray"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="16dp"
+            android:background="@android:color/darker_gray" />
 
         <!-- Acknowledgements Section -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Acknowledgements"
-            android:textSize="18sp"
-            android:fontFamily="@font/arial"
-            android:textStyle="bold"
-            android:layout_marginBottom="8dp" />
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="This app uses the Google Maps API to provide mapping and directions functionality.\n© 2024 Google LLC. All rights reserved."
-            android:textSize="16sp"
+            android:layout_height="61dp"
+            android:layout_marginBottom="8dp"
             android:fontFamily="@font/arial"
-            android:layout_marginBottom="16dp" />
+            android:text="Acknowledgements"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/arial"
+            android:text="This app uses the Google Maps API to provide mapping and directions functionality.\n© 2024 Google LLC. All rights reserved."
+            android:textSize="18sp" />
 
         <!-- Separator -->
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@android:color/darker_gray"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="16dp"
+            android:background="@android:color/darker_gray" />
 
         <!-- Support Section -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Support"
-                android:textSize="18sp"
                 android:fontFamily="@font/arial"
-                android:textStyle="bold"
-                android:gravity="start" />
+                android:gravity="start"
+                android:text="Support"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="contact@DineTrack.com"
-                android:textSize="16sp"
                 android:fontFamily="@font/arial"
-                android:gravity="end" />
+                android:gravity="end"
+                android:text="contact@DineTrack.com"
+                android:textSize="20sp" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
