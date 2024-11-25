@@ -1,5 +1,6 @@
 package ca.gbc.project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -20,6 +21,8 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
         String description = getIntent().getStringExtra("restaurant_description");
         String tags = getIntent().getStringExtra("restaurant_tags");
         int rating = getIntent().getIntExtra("restaurant_rating", 0);
+        double latitude = getIntent().getDoubleExtra("restaurant_latitude", 0); // New: Latitude
+        double longitude = getIntent().getDoubleExtra("restaurant_longitude", 0); // New: Longitude
 
         // Populate the UI
         ((TextView) findViewById(R.id.tv_restaurant_name)).setText(name);
@@ -30,5 +33,15 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
 
         // Update the rating stars dynamically
         // Example: Use logic to display filled and empty stars
+
+        // Add a button to view the restaurant on the map
+        findViewById(R.id.btn_view_map).setOnClickListener(v -> {
+            // Navigate to the map activity with location details
+            Intent intent = new Intent(RestaurantDetailsActivity.this, RestaurantMapActivity.class);
+            intent.putExtra("latitude", latitude); // Pass latitude
+            intent.putExtra("longitude", longitude); // Pass longitude
+            intent.putExtra("name", name); // Pass restaurant name
+            startActivity(intent);
+        });
     }
 }
