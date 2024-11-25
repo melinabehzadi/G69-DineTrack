@@ -1,5 +1,6 @@
 package ca.gbc.project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,6 +24,8 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
         String description = getIntent().getStringExtra("restaurant_description");
         String tags = getIntent().getStringExtra("restaurant_tags");
         int rating = getIntent().getIntExtra("restaurant_rating", 0);
+        double latitude = getIntent().getDoubleExtra("restaurant_latitude", 0); // New: Latitude
+        double longitude = getIntent().getDoubleExtra("restaurant_longitude", 0); // New: Longitude
 
         // Populate the UI
         ((TextView) findViewById(R.id.tv_restaurant_name)).setText(name);
@@ -31,32 +34,7 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.tv_description)).setText(description);
         ((TextView) findViewById(R.id.tv_tags)).setText("Tags: " + tags);
 
-        //Back button
-        Button backButton = findViewById(R.id.back_button);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Close the activity and return to the previous screen
-                finish();
-            }
-        });
-
-        // Star Ratings
-        ImageView[] stars = new ImageView[]{
-                findViewById(R.id.star1),
-                findViewById(R.id.star2),
-                findViewById(R.id.star3),
-                findViewById(R.id.star4),
-                findViewById(R.id.star5)
-        };
-
-        for (int i = 0; i < stars.length; i++) {
-            if (i < rating) {
-                stars[i].setImageResource(R.drawable.ic_star_filled);
-            } else {
-                stars[i].setImageResource(R.drawable.ic_star_empty);
-            }
-        }
-
+        // Update the rating stars dynamically
+        // Example: Use logic to display filled and empty stars
     }
 }
