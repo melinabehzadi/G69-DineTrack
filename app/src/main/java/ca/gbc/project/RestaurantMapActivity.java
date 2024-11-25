@@ -3,6 +3,9 @@ package ca.gbc.project;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -30,6 +33,14 @@ public class RestaurantMapActivity extends AppCompatActivity implements OnMapRea
         }
         mapView.onCreate(mapViewBundle);
         mapView.getMapAsync(this);
+
+        Button backButton = findViewById(R.id.map_back_button);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override
