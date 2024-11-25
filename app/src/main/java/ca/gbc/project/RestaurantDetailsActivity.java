@@ -36,11 +36,10 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
 
         // Add a button to view the restaurant on the map
         findViewById(R.id.btn_view_map).setOnClickListener(v -> {
-            // Navigate to the map activity with location details
             Intent intent = new Intent(RestaurantDetailsActivity.this, RestaurantMapActivity.class);
-            intent.putExtra("latitude", latitude); // Pass latitude
-            intent.putExtra("longitude", longitude); // Pass longitude
-            intent.putExtra("name", name); // Pass restaurant name
+            intent.putExtra("latitude", getIntent().getDoubleExtra("restaurant_latitude", 0));
+            intent.putExtra("longitude", getIntent().getDoubleExtra("restaurant_longitude", 0));
+            intent.putExtra("name", getIntent().getStringExtra("restaurant_name"));
             startActivity(intent);
         });
     }
