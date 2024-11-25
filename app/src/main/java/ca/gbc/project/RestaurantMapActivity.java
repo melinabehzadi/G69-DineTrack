@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -33,14 +34,15 @@ public class RestaurantMapActivity extends AppCompatActivity implements OnMapRea
 
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
-        double lat = getIntent().getDoubleExtra("latitude", 0);
-        double lng = getIntent().getDoubleExtra("longitude", 0);
+        double latitude = getIntent().getDoubleExtra("latitude", 0);
+        double longitude = getIntent().getDoubleExtra("longitude", 0);
         String name = getIntent().getStringExtra("name");
 
-        LatLng location = new LatLng(lat, lng);
+        LatLng location = new LatLng(latitude, longitude);
         googleMap.addMarker(new MarkerOptions().position(location).title(name));
-        googleMap.moveCamera(com.google.android.gms.maps.CameraUpdateFactory.newLatLngZoom(location, 15));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 15));
     }
+
 
     @Override
     protected void onStart() {
