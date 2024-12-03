@@ -60,9 +60,9 @@ public class AddRestaurantActivity extends AppCompatActivity {
         selectedRating = rating;
         for (int i = 0; i < stars.length; i++) {
             if (i < rating) {
-                stars[i].setImageResource(R.drawable.ic_star_filled); // Replace with filled star drawable
+                stars[i].setImageResource(R.drawable.ic_star_filled);
             } else {
-                stars[i].setImageResource(R.drawable.ic_star_empty); // Replace with empty star drawable
+                stars[i].setImageResource(R.drawable.ic_star_empty);
             }
         }
     }
@@ -79,11 +79,12 @@ public class AddRestaurantActivity extends AppCompatActivity {
             return;
         }
 
-        // Simulate saving the restaurant (e.g., save to a database)
-        Toast.makeText(this, "Restaurant saved successfully!", Toast.LENGTH_SHORT).show();
+        Restaurant restaurant = new Restaurant(name, address, phone, description, tags, selectedRating, 0, 0);
+        DBHandler dbHandler = new DBHandler(this);
+        dbHandler.addRestaurant(restaurant);
 
-        // Return to the previous screen or list
-        Intent intent = new Intent(this, RestaurantListActivity.class);
-        startActivity(intent);
+        Toast.makeText(this, "Restaurant saved successfully!", Toast.LENGTH_SHORT).show();
+        finish();
     }
+
 }

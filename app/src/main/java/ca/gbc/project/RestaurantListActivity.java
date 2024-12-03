@@ -1,9 +1,16 @@
 package ca.gbc.project;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -37,28 +44,32 @@ public class RestaurantListActivity extends AppCompatActivity {
         btnSort = findViewById(R.id.btn_sort);
         btnFilter = findViewById(R.id.btn_filter);
 
-        // Initialize the data
+        // Initialize the data lists
         restaurantList = new ArrayList<>();
-        populateRestaurantList();
-        filteredList = new ArrayList<>(restaurantList);
+        filteredList = new ArrayList<>();
 
-        // Set Adapter
+        // Initialize the adapter and set it to the RecyclerView
         adapter = new RestaurantAdapter(filteredList, this);
         recyclerView.setAdapter(adapter);
+
+        // Populate the restaurant list
+        populateRestaurantList();
 
         // Handle incoming search query from HomeActivity
         handleIncomingQuery();
 
-        // Set Listeners
+        // Set button listeners
         btnSearch.setOnClickListener(v -> handleSearch());
         btnSort.setOnClickListener(v -> handleSort());
-        btnFilter.setOnClickListener(v -> handleFilter());
+        btnFilter.setOnClickListener(v -> loadTags());
     }
+
+
 
     private void handleIncomingQuery() {
         String query = getIntent().getStringExtra("query");
         if (query != null && !query.isEmpty()) {
-            etSearch.setText(query); // Optional: Display the query in the search bar
+            etSearch.setText(query);
             filteredList.clear();
 
             for (Restaurant restaurant : restaurantList) {
@@ -73,30 +84,102 @@ public class RestaurantListActivity extends AppCompatActivity {
     }
 
     private void populateRestaurantList() {
-        // Add hardcoded sample restaurants with coordinates
-        restaurantList.add(new Restaurant("Pizza Place", "1111 Yonge St, 2P5 8K6", "+1 (123) 456-7890", "Best pizza in town.", "Italian, Fast Food", 5, 43.678827, -79.389233));
-        restaurantList.add(new Restaurant("Sushi Spot", "2222 Bloor St, 3X8 1Y2", "+1 (321) 654-0987", "Authentic sushi and sashimi.", "Japanese, Seafood", 4, 43.665407, -79.451332));
-        restaurantList.add(new Restaurant("Burger Joint", "3333 King St, 5Z9 3L4", "+1 (213) 456-1234", "Juicy burgers and fries.", "Fast Food, American", 3, 43.641384, -79.395644));
-        restaurantList.add(new Restaurant("Vegan Cafe", "4444 Queen St, 7T1 2V3", "+1 (987) 654-3210", "Plant-based meals.", "Vegan, Healthy", 4, 43.653908, -79.377184));
-        restaurantList.add(new Restaurant("Taco Paradise", "5555 Dundas St, 4Y7 6R5", "+1 (111) 222-3333", "Authentic tacos.", "Mexican, Fast Food", 5, 43.646547, -79.452939));
-        restaurantList.add(new Restaurant("Pasta Heaven", "6666 College St, 8T3 7R8", "+1 (444) 555-6666", "Homemade pasta.", "Italian, Fine Dining", 4, 43.662631, -79.395445));
-        restaurantList.add(new Restaurant("BBQ Shack", "7777 Main St, 9L1 8M3", "+1 (555) 666-7777", "BBQ ribs and brisket.", "Barbecue, American", 4, 43.704304, -79.420903));
-        restaurantList.add(new Restaurant("Dim Sum Delight", "8888 Chinatown Ave, 6Y5 4R3", "+1 (666) 777-8888", "Chinese dim sum.", "Chinese, Dim Sum", 5, 43.853947, -79.361051));
-        restaurantList.add(new Restaurant("Seafood Bay", "9999 Ocean Blvd, 5X6 2T1", "+1 (777) 888-9999", "Fresh seafood.", "Seafood, Fine Dining", 5, 43.647174, -79.374295));
+        DBHandler dbHandler = new DBHandler(this);
+        restaurantList = dbHandler.getAllRestaurants();
+        filteredList.clear();
+        filteredList.addAll(restaurantList);
+
+        if (adapter != null) {
+            adapter.notifyDataSetChanged();
+        } else {
+            Log.e("RestaurantListActivity", "Adapter is null when attempting to update the RecyclerView.");
+        }
     }
 
-    private void handleSearch() {
-        String query = etSearch.getText().toString().toLowerCase();
-        filteredList.clear();
 
-        for (Restaurant restaurant : restaurantList) {
-            if (restaurant.getName().toLowerCase().contains(query) ||
-                    restaurant.getTags().toLowerCase().contains(query)) {
-                filteredList.add(restaurant);
-            }
+    private void handleSearch() {
+        String query = etSearch.getText().toString().trim().toLowerCase();
+
+        if (!query.isEmpty()) {
+            DBHandler dbHandler = new DBHandler(this);
+            filteredList = dbHandler.searchRestaurants(query);
+            adapter = new RestaurantAdapter(filteredList, this);
+            recyclerView.setAdapter(adapter);
+        } else {
+            Toast.makeText(this, "Enter a search query", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void handleFilterWithParams(String[] tags) {
+        int minRating = 0; // Optionally include a rating filter
+        DBHandler dbHandler = new DBHandler(this);
+        filteredList = dbHandler.filterRestaurants(minRating, tags);
+
+        // Update the adapter
+        adapter = new RestaurantAdapter(filteredList, this);
+        recyclerView.setAdapter(adapter);
+    }
+
+    private void showFilterDialog(List<String> tags) {
+        // Create an AlertDialog Builder
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View dialogView = getLayoutInflater().inflate(R.layout.dialog_filter, null);
+        builder.setView(dialogView);
+
+        // Find the LinearLayout where checkboxes will be added
+        LinearLayout tagsContainer = dialogView.findViewById(R.id.tags_container);
+
+        // Dynamically add checkboxes for each tag
+        List<CheckBox> checkBoxes = new ArrayList<>();
+        for (String tag : tags) {
+            CheckBox checkBox = new CheckBox(this);
+            checkBox.setText(tag);
+            checkBox.setPadding(8, 8, 8, 8);
+            tagsContainer.addView(checkBox);
+            checkBoxes.add(checkBox);
         }
 
-        adapter.notifyDataSetChanged();
+        // Set Positive and Negative Buttons
+        builder.setPositiveButton("Apply", (dialog, which) -> {
+            List<String> selectedTags = new ArrayList<>();
+            for (CheckBox checkBox : checkBoxes) {
+                if (checkBox.isChecked()) {
+                    selectedTags.add(checkBox.getText().toString());
+                }
+            }
+
+            // Pass selected tags to filter handler
+            handleFilterWithParams(selectedTags.toArray(new String[0]));
+        });
+
+        builder.setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss());
+
+        // Create and customize the AlertDialog
+        AlertDialog dialog = builder.create();
+
+        // Customize dialog dimensions and appearance
+        dialog.setOnShowListener(d -> {
+            // Dynamically set dimensions: Width = 80%, Height = 60%
+            int width = (int) (getResources().getDisplayMetrics().widthPixels * 0.8);
+            int height = (int) (getResources().getDisplayMetrics().heightPixels * 0.6);
+            dialog.getWindow().setLayout(width, height);
+        });
+
+        // Show the dialog
+        dialog.show();
+    }
+
+    private void loadTags() {
+        DBHandler dbHandler = new DBHandler(this);
+        List<String> tags = dbHandler.getAllUniqueTags();
+
+        // Example: Print tags to verify
+        for (String tag : tags) {
+            Log.d("TAG", "Available Tag: " + tag);
+        }
+
+        // Pass the tags to your filter UI
+        showFilterDialog(tags);
     }
 
     private void handleSort() {
@@ -105,14 +188,14 @@ public class RestaurantListActivity extends AppCompatActivity {
     }
 
     private void handleFilter() {
-        filteredList.clear();
+        DBHandler dbHandler = new DBHandler(this);
 
-        for (Restaurant restaurant : restaurantList) {
-            if (restaurant.getRating() >= 4) { // Example: Filter only restaurants with ratings >= 4
-                filteredList.add(restaurant);
-            }
-        }
+        int minRating = 4;
+        String[] tags = {"Italian", "Fast Food"};
 
-        adapter.notifyDataSetChanged();
+        filteredList = dbHandler.filterRestaurants(minRating, tags);
+        adapter = new RestaurantAdapter(filteredList, this);
+        recyclerView.setAdapter(adapter);
     }
+
 }
