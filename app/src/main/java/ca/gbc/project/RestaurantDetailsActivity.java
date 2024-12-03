@@ -5,10 +5,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class RestaurantDetailsActivity extends AppCompatActivity {
@@ -52,6 +55,20 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
                 findViewById(R.id.star4),
                 findViewById(R.id.star5)
         };
+
+        // Edit Button
+        findViewById(R.id.btn_edit).setOnClickListener(v -> {
+            // Show edit pop-up
+            showEditPopup();
+        });
+
+        // Delete Button
+        findViewById(R.id.btn_delete).setOnClickListener(v -> {
+            // Show delete confirmation dialog
+            showDeleteConfirmationDialog();
+        });
+
+
 
         for (int i = 0; i < stars.length; i++) {
             if (i < rating) {
@@ -100,5 +117,69 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
 
             }
         }
+    }
+
+    // Function to display delete confirmation dialog
+    private void showDeleteConfirmationDialog() {
+        new AlertDialog.Builder(this)
+                .setTitle("Delete Restaurant")
+                .setMessage("Are you sure you want to delete this restaurant?")
+                .setPositiveButton("Yes", (dialog, which) -> {
+                    // Delete the restaurant and close the activity
+                    deleteRestaurant();
+                })
+                .setNegativeButton("No", (dialog, which) -> {
+                    // Dismiss the dialog
+                    dialog.dismiss();
+                })
+                .show();
+    }
+
+    // Function to delete the restaurant
+    private void deleteRestaurant() {
+        // Logic to delete the restaurant (e.g., remove from database)
+        Toast.makeText(this, "Restaurant deleted!", Toast.LENGTH_SHORT).show();
+        finish(); // Close the details page
+    }
+
+    // Function to display edit pop-up
+    private void showEditPopup() {
+        View popupView = getLayoutInflater().inflate(R.layout.edit_restaurant_popup, null);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setView(popupView);
+
+        EditText etName = popupView.findViewById(R.id.et_edit_name);
+        EditText etAddress = popupView.findViewById(R.id.et_edit_address);
+        EditText etPhone = popupView.findViewById(R.id.et_edit_phone);
+        EditText etDescription = popupView.findViewById(R.id.et_edit_description);
+        EditText etTags = popupView.findViewById(R.id.et_edit_tags);
+
+        // Populate existing data
+        etName.setText(getIntent().getStringExtra("restaurant_name"));
+        etAddress.setText(getIntent().getStringExtra("restaurant_address"));
+        etPhone.setText(getIntent().getStringExtra("restaurant_phone"));
+        etDescription.setText(getIntent().getStringExtra("restaurant_description"));
+        etTags.setText(getIntent().getStringExtra("restaurant_tags"));
+
+        builder.setPositiveButton("Save", (dialog, which) -> {
+            // Save updated restaurant details
+            String updatedName = etName.getText().toString().trim();
+            String updatedAddress = etAddress.getText().toString().trim();
+            String updatedPhone = etPhone.getText().toString().trim();
+            String updatedDescription = etDescription.getText().toString().trim();
+            String updatedTags = etTags.getText().toString().trim();
+
+            // Update UI and/or database
+            ((TextView) findViewById(R.id.tv_restaurant_name)).setText(updatedName);
+            ((TextView) findViewById(R.id.tv_address)).setText(updatedAddress);
+            ((TextView) findViewById(R.id.tv_phone_number)).setText(updatedPhone);
+            ((TextView) findViewById(R.id.tv_description)).setText(updatedDescription);
+            ((TextView) findViewById(R.id.tv_tags)).setText("Tags: " + updatedTags);
+
+            Toast.makeText(this, "Restaurant updated!", Toast.LENGTH_SHORT).show();
+        });
+
+        builder.setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss());
+        builder.show();
     }
 }

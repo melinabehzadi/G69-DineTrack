@@ -9,12 +9,13 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!-- Back Button -->
         <Button
             android:id="@+id/details_back_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Back"
-            />
+            android:text="Back" />
+
         <!-- Restaurant Name -->
         <TextView
             android:id="@+id/tv_restaurant_name"
@@ -83,7 +84,7 @@
             <TextView
                 android:id="@+id/tv_description"
                 android:layout_width="wrap_content"
-                android:layout_height="64dp"
+                android:layout_height="wrap_content"
                 android:text="Show a brief description..."
                 android:textSize="16sp" />
         </LinearLayout>
@@ -92,7 +93,7 @@
         <TextView
             android:id="@+id/tv_tags"
             android:layout_width="match_parent"
-            android:layout_height="67dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:text="Tags: Italian, Vegan"
             android:textSize="16sp" />
@@ -148,7 +149,6 @@
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:src="@drawable/ic_star_empty" />
-
         </LinearLayout>
 
         <!-- Line Below Stars -->
@@ -158,81 +158,61 @@
             android:background="@android:color/darker_gray"
             android:layout_marginBottom="16dp" />
 
-        <!-- Buttons -->
+        <!-- Action Buttons (View Map, Directions, Share) -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="175dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/box_border"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal"
-            android:padding="8dp">
+            android:padding="8dp"
+            android:layout_marginBottom="16dp">
 
-            <LinearLayout
+            <ImageButton
+                android:id="@+id/btn_view_map"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_map" />
+
+            <ImageButton
+                android:id="@+id/btn_directions"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_directions" />
+
+            <ImageButton
+                android:id="@+id/btn_share"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_share" />
+        </LinearLayout>
+
+        <!-- Edit and Delete Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="16dp">
+
+            <Button
+                android:id="@+id/btn_edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:text="Edit"
+                android:textColor="@android:color/white"
+                android:backgroundTint="@android:color/holo_blue_light" />
 
-                <ImageButton
-                    android:id="@+id/btn_view_map"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:background="@android:color/transparent"
-                    android:src="@drawable/ic_map" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="View on map"
-                    android:textSize="20sp" />
-            </LinearLayout>
-
-            <LinearLayout
+            <Button
+                android:id="@+id/btn_delete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageButton
-                    android:id="@+id/btn_directions"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:background="@android:color/transparent"
-                    android:src="@drawable/ic_directions" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Directions"
-                    android:textSize="20sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="97dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageButton
-                    android:id="@+id/btn_share"
-                    android:layout_width="90dp"
-                    android:layout_height="60dp"
-                    android:background="@android:color/transparent"
-                    android:src="@drawable/ic_share" />
-
-                <TextView
-                    android:layout_width="61dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Share"
-                    android:textSize="20sp" />
-            </LinearLayout>
+                android:text="Delete"
+                android:textColor="@android:color/white"
+                android:backgroundTint="@android:color/holo_red_light"
+                android:layout_marginStart="16dp" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
