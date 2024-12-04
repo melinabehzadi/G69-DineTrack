@@ -1,6 +1,18 @@
 <resources>
+    <!-- Primary Colors -->
+    <color name="colorPrimary">#D32F2F</color>
+    <color name="colorPrimaryDark">#B71C1C</color>
+    <color name="colorAccent">#388E3C</color>
 
-    <color name="black">#000000</color>
-    <color name="light_gray">#D3D3D3</color>
+    <!-- Secondary Colors -->
+    <color name="colorGold">#FFC107</color>
+    <color name="colorSilver">#B0BEC5</color>
 
+    <!-- Background and Text -->
+    <color name="colorBackground">#FFFFFF</color>
+    <color name="colorTextPrimary">#212121</color>
+    <color name="colorTextSecondary">#757575</color>
+
+    <!-- Festive Highlight -->
+    <color name="colorHighlight">#FFD700</color> <!-- Metallic Gold -->
 </resources>

@@ -3,7 +3,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@android:color/white">
+    android:background="@color/colorBackground">
 
     <!-- Dine Track Title at the Top -->
     <LinearLayout
@@ -19,11 +19,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:fontFamily="@font/academy_engraved"
             android:text="DINE"
-            android:textColor="@android:color/black"
-            android:textSize="34sp"
-            android:textStyle="bold" />
+            style="@style/ChristmasTitleText" />
 
         <ImageView
             android:id="@+id/app_logo"
@@ -37,18 +34,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:fontFamily="@font/academy_engraved"
             android:text="TRACK"
-            android:textColor="@android:color/black"
-            android:textSize="29sp"
-            android:textStyle="bold" />
+            style="@style/ChristmasTitleText" />
     </LinearLayout>
 
     <!-- Divider Line Below Title -->
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@android:color/darker_gray"
+        android:background="@color/colorSilver"
         android:layout_marginBottom="16dp" />
 
     <!-- Subtitle Positioned Below the Title -->
@@ -58,17 +52,14 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="16dp"
-        android:fontFamily="@font/comic"
         android:text="My Personal Restaurant Guide"
-        android:textColor="@android:color/black"
-        android:textSize="24sp"
-        android:textStyle="italic" />
+        style="@style/ChristmasTextView" />
 
     <!-- Divider Line Below Subtitle -->
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@android:color/darker_gray"
+        android:background="@color/colorSilver"
         android:layout_marginBottom="16dp" />
 
     <!-- Favorites, About, Add Buttons in the Middle -->
@@ -99,11 +90,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:fontFamily="@font/akaya"
-                android:gravity="center"
                 android:text="Favorites"
-                android:textColor="@android:color/black"
-                android:textSize="20sp" />
+                style="@style/ChristmasTextView" />
         </LinearLayout>
 
         <LinearLayout
@@ -125,11 +113,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:fontFamily="@font/akaya"
-                android:gravity="center"
                 android:text="About"
-                android:textColor="@android:color/black"
-                android:textSize="20sp" />
+                style="@style/ChristmasTextView" />
         </LinearLayout>
 
         <LinearLayout
@@ -151,11 +136,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:fontFamily="@font/akaya"
-                android:gravity="center"
                 android:text="Add"
-                android:textColor="@android:color/black"
-                android:textSize="20sp" />
+                style="@style/ChristmasTextView" />
         </LinearLayout>
     </LinearLayout>
 
@@ -163,7 +145,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@android:color/darker_gray"
+        android:background="@color/colorSilver"
         android:layout_marginBottom="16dp" />
 
     <!-- Search Bar with Frame -->
@@ -185,7 +167,8 @@
             android:drawablePadding="8dp"
             android:hint="Enter the restaurant name..."
             android:inputType="text"
-            android:padding="8dp" />
+            android:padding="8dp"
+            style="@style/CustomEditText" />
 
         <ImageButton
             android:id="@+id/btn_search"
