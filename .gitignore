@@ -1,3 +1,23 @@
+# Gradle
 .gradle/
-.idea/
+build/
+
+# Local configuration
 local.properties
+
+# IDE Files
+.idea/
+*.iml
+
+# Build output
+*.apk
+*.aab
+
+# Cache files
+*.lock
+*.bin
+*.log
+
+# Other
+.DS_Store
+Thumbs.db
