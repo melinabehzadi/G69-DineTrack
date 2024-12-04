@@ -1,5 +1,6 @@
 package ca.gbc.project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -203,5 +204,24 @@ public class RestaurantListActivity extends AppCompatActivity {
         adapter = new RestaurantAdapter(filteredList, this);
         recyclerView.setAdapter(adapter);
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        populateRestaurantList();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && data != null) {
+            String deletedRestaurant = data.getStringExtra("deleted_restaurant");
+            if (deletedRestaurant != null) {
+                populateRestaurantList();
+            }
+        }
+    }
+
+
 
 }

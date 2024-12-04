@@ -5,8 +5,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -106,29 +108,123 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
                 .setTitle("Delete Restaurant")
                 .setMessage("Are you sure you want to delete this restaurant?")
                 .setPositiveButton("Yes", (dialog, which) -> {
-                    Toast.makeText(this, "Restaurant deleted!", Toast.LENGTH_SHORT).show();
+                    // Delete the restaurant from the database
+                    DBHandler dbHandler = new DBHandler(this);
+                    String restaurantName = getIntent().getStringExtra("restaurant_name");
+                    dbHandler.deleteRestaurant(restaurantName);
+
+                    // Notify the user and finish the activity
+                    Toast.makeText(this, "Restaurant deleted successfully!", Toast.LENGTH_SHORT).show();
+
+                    // Ensure that the list is refreshed in RestaurantListActivity
+                    Intent intent = new Intent();
+                    intent.putExtra("deleted_restaurant", restaurantName);
+                    setResult(RESULT_OK, intent);
+
                     finish();
                 })
                 .setNegativeButton("No", (dialog, which) -> dialog.dismiss())
                 .show();
     }
 
+
+
+    private void updateRestaurantInDatabase(String name, String address, String phone, String description, String tags, int rating) {
+        DBHandler dbHandler = new DBHandler(this);
+
+        // Create a new Restaurant object with updated values
+        Restaurant updatedRestaurant = new Restaurant(
+                name, address, phone, description, tags, rating,
+                getIntent().getDoubleExtra("restaurant_latitude", 0),
+                getIntent().getDoubleExtra("restaurant_longitude", 0)
+        );
+
+        // Update the restaurant in the database
+        dbHandler.updateRestaurant(updatedRestaurant);
+
+        // Notify user
+        Toast.makeText(this, "Restaurant updated successfully!", Toast.LENGTH_SHORT).show();
+
+        // Refresh the details screen with data fetched from the database
+        refreshDetailsScreen(updatedRestaurant);
+
+        // Update the Intent with the new data
+        getIntent().putExtra("restaurant_name", updatedRestaurant.getName());
+        getIntent().putExtra("restaurant_address", updatedRestaurant.getAddress());
+        getIntent().putExtra("restaurant_phone", updatedRestaurant.getPhone());
+        getIntent().putExtra("restaurant_description", updatedRestaurant.getDescription());
+        getIntent().putExtra("restaurant_tags", updatedRestaurant.getTags());
+        getIntent().putExtra("restaurant_rating", updatedRestaurant.getRating());
+    }
+
+    private void refreshDetailsScreen(Restaurant updatedRestaurant) {
+        // Update the UI with new data
+        ((TextView) findViewById(R.id.tv_restaurant_name)).setText(updatedRestaurant.getName());
+        ((TextView) findViewById(R.id.tv_address)).setText(updatedRestaurant.getAddress());
+        ((TextView) findViewById(R.id.tv_phone_number)).setText(updatedRestaurant.getPhone());
+        ((TextView) findViewById(R.id.tv_description)).setText(updatedRestaurant.getDescription());
+        ((TextView) findViewById(R.id.tv_tags)).setText("Tags: " + updatedRestaurant.getTags());
+
+        // Update star ratings
+        ImageView[] stars = new ImageView[]{
+                findViewById(R.id.star1),
+                findViewById(R.id.star2),
+                findViewById(R.id.star3),
+                findViewById(R.id.star4),
+                findViewById(R.id.star5)
+        };
+
+        for (int i = 0; i < stars.length; i++) {
+            if (i < updatedRestaurant.getRating()) {
+                stars[i].setImageResource(R.drawable.ic_star_filled);
+            } else {
+                stars[i].setImageResource(R.drawable.ic_star_empty);
+            }
+        }
+    }
+
     private void showEditPopup() {
+        // Inflate the popup view
         View popupView = getLayoutInflater().inflate(R.layout.edit_restaurant_popup, null);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setView(popupView);
 
-        TextView etName = popupView.findViewById(R.id.et_edit_name);
-        TextView etAddress = popupView.findViewById(R.id.et_edit_address);
-        TextView etPhone = popupView.findViewById(R.id.et_edit_phone);
-        TextView etDescription = popupView.findViewById(R.id.et_edit_description);
-        TextView etTags = popupView.findViewById(R.id.et_edit_tags);
+        // Initialize input fields
+        EditText etName = popupView.findViewById(R.id.et_edit_name);
+        EditText etAddress = popupView.findViewById(R.id.et_edit_address);
+        EditText etPhone = popupView.findViewById(R.id.et_edit_phone);
+        EditText etDescription = popupView.findViewById(R.id.et_edit_description);
+        EditText etTags = popupView.findViewById(R.id.et_edit_tags);
+        Spinner spinnerRating = popupView.findViewById(R.id.spinner_rating);
 
+        // Populate fields with current data
+        etName.setText(getIntent().getStringExtra("restaurant_name"));
+        etAddress.setText(getIntent().getStringExtra("restaurant_address"));
+        etPhone.setText(getIntent().getStringExtra("restaurant_phone"));
+        etDescription.setText(getIntent().getStringExtra("restaurant_description"));
+        etTags.setText(getIntent().getStringExtra("restaurant_tags"));
+
+        // Set rating spinner
+        int rating = getIntent().getIntExtra("restaurant_rating", 0);
+        spinnerRating.setSelection(rating - 1); // Assuming spinner options are 1-5
+
+        // Handle Save button
         builder.setPositiveButton("Save", (dialog, which) -> {
-            Toast.makeText(this, "Restaurant details updated!", Toast.LENGTH_SHORT).show();
+            // Retrieve updated values
+            String updatedName = etName.getText().toString().trim();
+            String updatedAddress = etAddress.getText().toString().trim();
+            String updatedPhone = etPhone.getText().toString().trim();
+            String updatedDescription = etDescription.getText().toString().trim();
+            String updatedTags = etTags.getText().toString().trim();
+            int updatedRating = spinnerRating.getSelectedItemPosition() + 1;
+
+            // Save to database
+            updateRestaurantInDatabase(updatedName, updatedAddress, updatedPhone, updatedDescription, updatedTags, updatedRating);
         });
 
+        // Handle Cancel button
         builder.setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss());
         builder.show();
     }
+
 }

@@ -13,6 +13,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        DBHandler dbHandler = new DBHandler(this);
+
+        dbHandler.seedDatabase();
+
         // Delay for 2.5 seconds before navigating to the HomeActivity
         new Handler().postDelayed(() -> {
             Intent intent = new Intent(MainActivity.this, HomeActivity.class);

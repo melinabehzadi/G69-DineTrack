@@ -56,10 +56,15 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(COLUMN_ADDRESS, restaurant.getAddress());
         values.put(COLUMN_PHONE, restaurant.getPhone());
         values.put(COLUMN_DESCRIPTION, restaurant.getDescription());
-        values.put(COLUMN_TAGS, restaurant.getTags());
+
+        // Normalize tags
+        String normalizedTags = normalizeTags(restaurant.getTags());
+        values.put(COLUMN_TAGS, normalizedTags);
+
         values.put(COLUMN_RATING, restaurant.getRating());
         values.put(COLUMN_LATITUDE, restaurant.getLatitude());
         values.put(COLUMN_LONGITUDE, restaurant.getLongitude());
+
         db.insert(TABLE_RESTAURANTS, null, values);
         db.close();
     }
@@ -94,7 +99,11 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(COLUMN_ADDRESS, restaurant.getAddress());
         values.put(COLUMN_PHONE, restaurant.getPhone());
         values.put(COLUMN_DESCRIPTION, restaurant.getDescription());
-        values.put(COLUMN_TAGS, restaurant.getTags());
+
+        // Normalize tags
+        String normalizedTags = normalizeTags(restaurant.getTags());
+        values.put(COLUMN_TAGS, normalizedTags);
+
         values.put(COLUMN_RATING, restaurant.getRating());
         values.put(COLUMN_LATITUDE, restaurant.getLatitude());
         values.put(COLUMN_LONGITUDE, restaurant.getLongitude());
@@ -103,19 +112,24 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void updateRestaurantRating(String restaurantName, int newRating) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_RATING, newRating);
+    private String normalizeTags(String tags) {
+        if (tags == null || tags.isEmpty()) {
+            return "";
+        }
 
-        // Update the rating where the restaurant name matches
-        db.update(TABLE_RESTAURANTS, values, COLUMN_NAME + " = ?", new String[]{restaurantName});
-        db.close();
+        // Split tags by commas, trim spaces, and convert to lowercase
+        String[] tagArray = tags.split(",");
+        List<String> normalizedTags = new ArrayList<>();
+        for (String tag : tagArray) {
+            normalizedTags.add(tag.trim().toLowerCase());
+        }
+
+        // Join back into a single string
+        return String.join(",", normalizedTags);
     }
 
     public void deleteRestaurant(String restaurantName) {
         SQLiteDatabase db = this.getWritableDatabase();
-
         db.delete(TABLE_RESTAURANTS, COLUMN_NAME + " = ?", new String[]{restaurantName});
         db.close();
     }
@@ -213,6 +227,34 @@ public class DBHandler extends SQLiteOpenHelper {
 
         return tagsList;
     }
+
+    public void seedDatabase() {
+        List<Restaurant> seedData = SeedRestaurants.getRestaurantSeedData();
+        for (Restaurant restaurant : seedData) {
+            if (!doesRestaurantExist(restaurant.getName())) {
+                addRestaurant(restaurant);
+            }
+        }
+    }
+
+    public boolean doesRestaurantExist(String name) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(
+                TABLE_RESTAURANTS,
+                new String[]{COLUMN_ID},
+                COLUMN_NAME + " = ?",
+                new String[]{name},
+                null,
+                null,
+                null
+        );
+
+        boolean exists = cursor.moveToFirst();
+        cursor.close();
+        db.close();
+        return exists;
+    }
+
 
 
 }
