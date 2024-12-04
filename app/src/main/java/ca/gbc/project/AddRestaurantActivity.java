@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -40,6 +41,13 @@ public class AddRestaurantActivity extends AppCompatActivity {
             final int index = i;
             stars[i].setOnClickListener(v -> updateRating(index + 1));
         }
+
+        // Back button functionality
+        ImageButton btnBackToHome = findViewById(R.id.btn_back_to_home);
+        btnBackToHome.setOnClickListener(v -> {
+            // Navigate back to the HomeActivity
+            finish();
+        });
 
         // Cancel button
         Button btnCancel = findViewById(R.id.btn_cancel);
@@ -84,7 +92,10 @@ public class AddRestaurantActivity extends AppCompatActivity {
         dbHandler.addRestaurant(restaurant);
 
         Toast.makeText(this, "Restaurant saved successfully!", Toast.LENGTH_SHORT).show();
-        finish();
+
+        // Return to the Restaurant List Activity
+        Intent intent = new Intent(this, RestaurantListActivity.class);
+        startActivity(intent);
     }
 
 }

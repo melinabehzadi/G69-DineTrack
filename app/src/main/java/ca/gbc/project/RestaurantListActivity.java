@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import android.widget.ImageButton;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -33,6 +35,10 @@ public class RestaurantListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant_list);
+
+        // Back button logic
+        ImageButton btnBackToHome = findViewById(R.id.btn_back_to_home);
+        btnBackToHome.setOnClickListener(v -> finish());
 
         // Initialize RecyclerView
         recyclerView = findViewById(R.id.rv_restaurants);
