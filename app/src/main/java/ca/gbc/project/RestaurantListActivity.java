@@ -3,6 +3,8 @@ package ca.gbc.project;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,6 +28,10 @@ public class RestaurantListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant_list);
+
+        // Back button logic
+        ImageButton btnBackToHome = findViewById(R.id.btn_back_to_home);
+        btnBackToHome.setOnClickListener(v -> finish());
 
         // Initialize RecyclerView
         recyclerView = findViewById(R.id.rv_restaurants);
