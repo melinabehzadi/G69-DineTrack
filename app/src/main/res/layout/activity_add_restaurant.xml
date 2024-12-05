@@ -288,8 +288,8 @@
 
             <Button
                 android:id="@+id/btn_cancel"
-                android:layout_width="114dp"
-                android:layout_height="65dp"
+                android:layout_width="110dp"
+                android:layout_height="52dp"
                 android:layout_marginEnd="16dp"
                 android:text="Cancel"
                 android:textColor="@android:color/white"
@@ -297,8 +297,8 @@
 
             <Button
                 android:id="@+id/btn_save"
-                android:layout_width="114dp"
-                android:layout_height="65dp"
+                android:layout_width="110dp"
+                android:layout_height="52dp"
                 android:textColor="@android:color/white"
                 android:backgroundTint="@android:color/holo_blue_light"
                 android:text="Save"

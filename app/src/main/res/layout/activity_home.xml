@@ -53,7 +53,7 @@
                 android:id="@+id/btn_favorites"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:backgroundTint="@color/colorAccent"
+                android:backgroundTint="@android:color/holo_blue_light"
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_star" />
 
@@ -78,7 +78,7 @@
                 android:id="@+id/btn_about"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:backgroundTint="@color/colorAccent"
+                android:backgroundTint="@android:color/holo_blue_light"
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_info" />
 
@@ -104,7 +104,7 @@
                 android:id="@+id/btn_add"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:backgroundTint="@color/colorAccent"
+                android:backgroundTint="@android:color/holo_blue_light"
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_add" />
 
