@@ -6,7 +6,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="#BBD2E7">
 
         <!-- Name Field -->
         <TextView
@@ -23,6 +24,7 @@
             android:layout_height="wrap_content"
             android:hint="Restaurant Name"
             android:inputType="textCapWords"
+
             android:imeOptions="actionNext"
             android:focusable="true"
             android:focusableInTouchMode="true"

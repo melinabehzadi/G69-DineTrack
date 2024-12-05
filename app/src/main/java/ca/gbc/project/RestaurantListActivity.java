@@ -47,7 +47,7 @@ public class RestaurantListActivity extends AppCompatActivity {
 
         // Initialize UI components
         etSearch = findViewById(R.id.et_search);
-        btnSearch = findViewById(R.id.btn_search);
+        ImageButton btnSearch = findViewById(R.id.btn_search);
         btnSort = findViewById(R.id.btn_sort);
         btnFilter = findViewById(R.id.btn_filter);
 

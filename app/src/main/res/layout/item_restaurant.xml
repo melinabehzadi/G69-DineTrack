@@ -4,7 +4,8 @@
     android:orientation="horizontal"
     android:padding="8dp"
     android:layout_marginBottom="8dp"
-    android:background="@drawable/restaurant_item_background">
+    android:background="@drawable/restaurant_item_background"
+    >
 
     <!-- Thumbnail -->
     <ImageView
@@ -12,7 +13,8 @@
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_marginEnd="8dp"
-        android:src="@drawable/ic_placeholder" />
+        android:src="@drawable/ic_placeholder"
+        />
 
     <!-- Content -->
     <LinearLayout
@@ -27,7 +29,7 @@
             android:layout_height="wrap_content"
             android:text="Restaurant Name"
             android:textSize="16sp"
-            android:fontFamily="@font/arial"
+            android:fontFamily="@font/delius_regular"
             android:textColor="@android:color/black" />
 
         <TextView
@@ -36,8 +38,8 @@
             android:layout_height="wrap_content"
             android:text="Tag1, Tag2, Tag3"
             android:textSize="14sp"
-            android:fontFamily="@font/arial"
-            android:textColor="@android:color/darker_gray" />
+            android:fontFamily="@font/delius_regular"
+            android:textColor="@color/colorTextPrimary" />
 
         <!-- Star Rating -->
         <LinearLayout
@@ -81,7 +83,7 @@
         android:layout_height="match_parent"
         android:text="Details"
         android:background="@drawable/box_background"
-        android:backgroundTint="@android:color/darker_gray"
+        android:backgroundTint="@android:color/holo_blue_light"
         android:padding="8dp"
         android:textColor="@android:color/black" />
 </LinearLayout>

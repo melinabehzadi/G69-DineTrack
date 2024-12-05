@@ -66,10 +66,14 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba15826f-9ce1-470e-98ab-aa3f07fd1365" name="Changes" comment="made stars gold">
+    <list default="true" id="ba15826f-9ce1-470e-98ab-aa3f07fd1365" name="Changes" comment="Changed styling">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_restaurant.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_restaurant.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/gbc/project/RestaurantListActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/gbc/project/RestaurantListActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/restaurant_item_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/restaurant_item_background.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_restaurant_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_restaurant_details.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_restaurant_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_restaurant_list.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/edit_restaurant_popup.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/edit_restaurant_popup.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_restaurant.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_restaurant.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -293,7 +297,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733384108504</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Changed styling">
+      <option name="closed" value="true" />
+      <created>1733386375385</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1733386375385</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -304,6 +316,7 @@
     <MESSAGE value="Added Styling" />
     <MESSAGE value="workspace" />
     <MESSAGE value="made stars gold" />
-    <option name="LAST_COMMIT_MESSAGE" value="made stars gold" />
+    <MESSAGE value="Changed styling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed styling" />
   </component>
 </project>

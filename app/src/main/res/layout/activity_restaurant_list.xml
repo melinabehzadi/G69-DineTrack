@@ -1,17 +1,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="8dp"
     android:background="@drawable/third">
 
-    <!-- Header with Back Button -->
-    <LinearLayout
+    <!-- Header with Back Button and Title -->
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:paddingBottom="8dp">
+        android:padding="8dp"
+        >
 
         <!-- Back Button -->
         <ImageButton
@@ -19,58 +19,58 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@android:drawable/ic_menu_revert"
-            android:background="@android:color/transparent"
-            android:contentDescription="Back to Home"
-            android:layout_marginEnd="8dp" />
+            android:background="@null"
+            android:contentDescription="Back Button"
+            android:layout_alignParentStart="true" />
 
-        <!-- Favourites Title -->
+        <!-- Title -->
         <TextView
-            android:id="@+id/tv_favourites"
-            android:layout_width="0dp"
+            android:id="@+id/tv_restaurant_name"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Favourites"
-            android:textSize="20sp"
+            android:text="Favorites"
+            android:textSize="24sp"
             android:textStyle="bold"
-            android:gravity="center"
-            android:fontFamily="@font/arial"
-            android:textColor="@android:color/black" />
-    </LinearLayout>
+            android:textColor="@android:color/black"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/delius_regular"
+            android:background="#99BBD2E7"
+            android:padding="5dp"
+            />
+    </RelativeLayout>
 
-    <!-- Search and Buttons -->
+    <!-- Search Bar -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:background="@drawable/frame_background"
         android:gravity="center_vertical"
-        android:weightSum="3"
-        android:paddingBottom="8dp">
+        android:orientation="horizontal"
+        android:padding="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp">
 
         <EditText
             android:id="@+id/et_search"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:hint="Search"
-            android:padding="8dp"
-            android:background="@drawable/box_background"
-            android:textSize="14sp"
-            android:textColor="@android:color/black"
-            android:textColorHint="@android:color/darker_gray" />
-
-        <Button
-            android:id="@+id/btn_search"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_weight="1"
-            android:layout_marginStart="8dp"
-            android:text="Search"
-            android:textAllCaps="false"
-            android:textSize="14sp"
-            android:background="@drawable/box_background"
-            android:backgroundTint="@android:color/darker_gray"
-            android:padding="4dp"
-            android:textColor="@android:color/black" />
+            android:background="@color/colorBackground"
+            android:hint="Enter the restaurant name..."
+            android:inputType="text"
+            android:padding="6dp"
+            style="@style/CustomEditText" />
+
+        <ImageButton
+            android:id="@+id/btn_search"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/colorHighlight"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_menu_search"
+            android:layout_marginStart="8dp" />
     </LinearLayout>
 
     <!-- Sort and Filter Buttons -->
@@ -89,7 +89,7 @@
             android:padding="4dp"
             android:textAllCaps="false"
             android:background="@drawable/box_background"
-            android:backgroundTint="@android:color/darker_gray"
+            android:backgroundTint="@android:color/holo_blue_light"
             android:textSize="14sp"
             android:textColor="@android:color/black"
             android:layout_marginEnd="8dp" />
@@ -102,7 +102,7 @@
             android:padding="4dp"
             android:textAllCaps="false"
             android:background="@drawable/box_background"
-            android:backgroundTint="@android:color/darker_gray"
+            android:backgroundTint="@color/colorGold"
             android:textSize="14sp"
             android:textColor="@android:color/black" />
     </LinearLayout>
