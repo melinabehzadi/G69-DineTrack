@@ -1,75 +1,46 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="16dp"
-    android:background="@color/colorBackground">
+    android:background="@drawable/third">
 
-    <!-- Dine Track Title at the Top -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginBottom="16dp">
+    <!-- Dine Track Logo -->
+    <ImageView
+        android:id="@+id/app_logo"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/app_logo2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_chainStyle="spread"
+        android:layout_marginTop="16dp" />
 
-        <TextView
-            android:id="@+id/title_dine"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:text="DINE"
-            style="@style/ChristmasTitleText" />
-
-        <ImageView
-            android:id="@+id/app_logo"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginHorizontal="8dp"
-            android:src="@drawable/app_logo" />
-
-        <TextView
-            android:id="@+id/title_track"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="TRACK"
-            style="@style/ChristmasTitleText" />
-    </LinearLayout>
-
-    <!-- Divider Line Below Title -->
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/colorSilver"
-        android:layout_marginBottom="16dp" />
-
-    <!-- Subtitle Positioned Below the Title -->
+    <!-- Subtitle -->
     <TextView
         android:id="@+id/app_subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="16dp"
         android:text="My Personal Restaurant Guide"
-        style="@style/ChristmasTextView" />
+        style="@style/ChristmasTitleText"
+        app:layout_constraintTop_toBottomOf="@id/app_logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
 
-    <!-- Divider Line Below Subtitle -->
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/colorSilver"
-        android:layout_marginBottom="16dp" />
-
-    <!-- Favorites, About, Add Buttons in the Middle -->
+    <!-- Favorites, About, Add Buttons -->
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
+        android:id="@+id/button_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_marginBottom="24dp">
+        app:layout_constraintTop_toBottomOf="@id/app_subtitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp"> <!-- Adjust this value to move buttons up or down -->
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -80,18 +51,20 @@
 
             <ImageButton
                 android:id="@+id/btn_favorites"
-                android:layout_width="103dp"
-                android:layout_height="97dp"
-                android:background="@drawable/circle_background"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:backgroundTint="@color/colorAccent"
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_star" />
 
             <TextView
+                style="@style/ChristmasTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="Favorites"
-                style="@style/ChristmasTextView" />
+                android:background="#99BBD2E7"
+                android:textColor="@android:color/black"/>
         </LinearLayout>
 
         <LinearLayout
@@ -103,18 +76,21 @@
 
             <ImageButton
                 android:id="@+id/btn_about"
-                android:layout_width="102dp"
-                android:layout_height="97dp"
-                android:background="@drawable/circle_background"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:backgroundTint="@color/colorAccent"
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_info" />
 
             <TextView
+                style="@style/ChristmasTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="About"
-                style="@style/ChristmasTextView" />
+                android:background="#99BBD2E7"
+                android:textColor="@android:color/black"
+/>
         </LinearLayout>
 
         <LinearLayout
@@ -126,57 +102,55 @@
 
             <ImageButton
                 android:id="@+id/btn_add"
-                android:layout_width="96dp"
-                android:layout_height="98dp"
-                android:background="@drawable/circle_background"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:backgroundTint="@color/colorAccent"
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_add" />
 
             <TextView
+                style="@style/ChristmasTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="Add"
-                style="@style/ChristmasTextView" />
+                android:background="#99BBD2E7"
+                android:textColor="@android:color/black" />
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Divider Line Below Buttons -->
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/colorSilver"
-        android:layout_marginBottom="16dp" />
-
-    <!-- Search Bar with Frame -->
+    <!-- Search Bar -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:background="@drawable/frame_background"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="8dp">
+        android:padding="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp">
 
         <EditText
             android:id="@+id/search_bar"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_weight="1"
-            android:background="@android:color/white"
-            android:drawablePadding="8dp"
+            android:background="@color/colorBackground"
             android:hint="Enter the restaurant name..."
             android:inputType="text"
-            android:padding="8dp"
+            android:padding="6dp"
             style="@style/CustomEditText" />
 
         <ImageButton
             android:id="@+id/btn_search"
-            android:layout_width="75dp"
-            android:layout_height="64dp"
-            android:background="@android:color/transparent"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/colorHighlight"
             android:scaleType="centerInside"
-            android:src="@drawable/ic_menu_search" />
+            android:src="@drawable/ic_menu_search"
+            android:layout_marginStart="8dp" />
     </LinearLayout>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

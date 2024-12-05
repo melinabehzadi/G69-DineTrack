@@ -1,7 +1,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@drawable/third"
     android:padding="16dp">
 
     <LinearLayout
@@ -30,177 +30,191 @@
                 android:id="@+id/add_restaurant_header"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="#99BBD2E7"
+                android:fontFamily="@font/delius_regular"
                 android:text="Add Your New Restaurant"
+                android:textColor="@android:color/black"
                 android:textSize="20sp"
-                android:fontFamily="@font/akaya"
-                android:textStyle="bold"
-                android:textColor="@android:color/black"
-                android:layout_gravity="center" />
+                android:textStyle="bold" />
         </LinearLayout>
 
-        <!-- Restaurant Name -->
+
+        <!-- Grouped Section -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="12dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Restaurant Name"
-                android:textSize="16sp"
-                android:fontFamily="@font/arial"
-                android:textColor="@android:color/black"
-                android:layout_marginEnd="8dp" />
-
-            <EditText
-                android:id="@+id/et_restaurant_name"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="Enter Restaurant name"
-                android:background="@drawable/box_background"
-                android:padding="10dp"
-                android:fontFamily="@font/comic" />
-        </LinearLayout>
-
-        <!-- Address -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="12dp">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_location" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Address"
-                android:textSize="16sp"
-                android:fontFamily="@font/arial"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:textColor="@android:color/black" />
-
-            <EditText
-                android:id="@+id/et_address"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="Enter Address"
-                android:background="@drawable/box_background"
-                android:padding="10dp"
-                android:fontFamily="@font/comic" />
-        </LinearLayout>
-
-        <!-- Phone Number -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="12dp">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_phone" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Phone Number"
-                android:textSize="16sp"
-                android:fontFamily="@font/arial"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:textColor="@android:color/black" />
-
-            <EditText
-                android:id="@+id/et_phone_number"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="Enter Phone number"
-                android:background="@drawable/box_background"
-                android:padding="10dp"
-                android:fontFamily="@font/comic"
-                android:inputType="phone" />
-        </LinearLayout>
-
-        <!-- Description -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="12dp">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_description" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Description"
-                android:textSize="16sp"
-                android:fontFamily="@font/arial"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:textColor="@android:color/black" />
-
-            <EditText
-                android:id="@+id/et_description"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="Add description"
-                android:background="@drawable/box_background"
-                android:padding="10dp"
-                android:fontFamily="@font/comic" />
-        </LinearLayout>
-
-        <!-- Tags -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:background="#99BBD2E7"
             android:layout_marginBottom="16dp">
 
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_tags" />
-
-            <TextView
-                android:layout_width="wrap_content"
+            <!-- Restaurant Name -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tags"
-                android:textSize="16sp"
-                android:fontFamily="@font/arial"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:textColor="@android:color/black" />
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp"
 
-            <EditText
-                android:id="@+id/et_tags"
-                android:layout_width="0dp"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Restaurant Name"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/arial"
+                    android:textColor="@android:color/black"
+                    android:layout_marginEnd="8dp" />
+
+                <EditText
+                    android:id="@+id/et_restaurant_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Enter Restaurant name"
+                    android:background="@drawable/box_background"
+                    android:padding="10dp"
+                    android:fontFamily="@font/comic" />
+            </LinearLayout>
+
+            <!-- Address -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="Add tags (vegan, Mexican...)"
-                android:background="@drawable/box_background"
-                android:padding="10dp"
-                android:fontFamily="@font/comic" />
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_location" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Address"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/arial"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:textColor="@android:color/black" />
+
+                <EditText
+                    android:id="@+id/et_address"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Enter Address"
+                    android:background="@drawable/box_background"
+                    android:padding="10dp"
+                    android:fontFamily="@font/comic" />
+            </LinearLayout>
+
+            <!-- Phone Number -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_phone" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Phone Number"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/arial"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:textColor="@android:color/black" />
+
+                <EditText
+                    android:id="@+id/et_phone_number"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Enter Phone number"
+                    android:background="@drawable/box_background"
+                    android:padding="10dp"
+                    android:fontFamily="@font/comic"
+                    android:inputType="phone" />
+            </LinearLayout>
+
+            <!-- Description -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_description" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Description"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/arial"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:textColor="@android:color/black" />
+
+                <EditText
+                    android:id="@+id/et_description"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Add description"
+                    android:background="@drawable/box_background"
+                    android:padding="10dp"
+                    android:fontFamily="@font/comic" />
+            </LinearLayout>
+
+            <!-- Tags -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_tags" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tags"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/arial"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:textColor="@android:color/black" />
+
+                <EditText
+                    android:id="@+id/et_tags"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Add tags (vegan, Mexican...)"
+                    android:background="@drawable/box_background"
+                    android:padding="10dp"
+                    android:fontFamily="@font/comic" />
+            </LinearLayout>
         </LinearLayout>
 
         <!-- Rating -->
@@ -209,22 +223,28 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:gravity="center"
+
+
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:fontFamily="@font/academy_engraved"
+                android:fontFamily="@font/delius_regular"
                 android:gravity="center"
                 android:text="Rating"
+                android:textStyle="bold"
                 android:textColor="@android:color/black"
-                android:textSize="30sp" />
+                android:textSize="30sp"
+                android:background="#99BBD2E7"
+                />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:background="#99BBD2E7"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -271,17 +291,18 @@
                 android:layout_width="114dp"
                 android:layout_height="65dp"
                 android:layout_marginEnd="16dp"
-                android:backgroundTint="@color/light_gray"
                 android:text="Cancel"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/white"
+                android:backgroundTint="@android:color/holo_red_light"/>
 
             <Button
                 android:id="@+id/btn_save"
                 android:layout_width="114dp"
                 android:layout_height="65dp"
-                android:backgroundTint="@color/light_gray"
+                android:textColor="@android:color/white"
+                android:backgroundTint="@android:color/holo_blue_light"
                 android:text="Save"
-                android:textColor="@android:color/black" />
+                />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

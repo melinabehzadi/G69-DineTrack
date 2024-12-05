@@ -1,13 +1,14 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@drawable/third"
     android:padding="16dp"
+    android:fillViewport="true"
     android:textAlignment="center">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <!-- Back Button -->
@@ -28,11 +29,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="16dp"
-            android:fontFamily="@font/arial"
             android:text="About"
-            android:textColor="@android:color/black"
-            android:textSize="34sp"
-            android:textStyle="bold" />
+            style="@style/ChristmasTitleText" />
 
         <!-- Version -->
         <LinearLayout
@@ -45,20 +43,16 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:fontFamily="@font/arial"
-                android:gravity="start"
                 android:text="Version"
-                android:textColor="@android:color/black"
-                android:textSize="16sp" />
+                style="@style/ChristmasTextView"
+                android:gravity="start" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/arial"
-                android:gravity="end"
                 android:text="1.0.0"
-                android:textColor="@android:color/black"
-                android:textSize="16sp" />
+                style="@style/ChristmasTextView"
+                android:gravity="end" />
         </LinearLayout>
 
         <!-- Separator -->
@@ -70,23 +64,27 @@
 
         <!-- Team Section -->
         <TextView
-            android:layout_width="352dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginBottom="8dp"
-            android:fontFamily="@font/arial"
             android:text="Team"
-            android:textAlignment="center"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            style="@style/ChristmasTitleText" />
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="188dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:fontFamily="@font/arial"
             android:gravity="center"
+
             android:text="Valeria Arce - Developer\nMelina Behzadi Nejad - Developer\nOscar Piedrasanta Diaz - Developer\nMobinasadat Zargary - Developer"
-            android:textSize="20sp" />
+            style="@style/ChristmasTextView" />
+
+        <!-- Spacer -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
         <!-- Separator -->
         <View
@@ -97,21 +95,25 @@
 
         <!-- Acknowledgements Section -->
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="61dp"
+            style="@style/ChristmasTitleText"
+            android:layout_width="229dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginBottom="8dp"
-            android:fontFamily="@font/arial"
-            android:text="Acknowledgements"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:background="#99BBD2E7"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:text="Acknowledgements" />
 
         <TextView
+            style="@style/ChristmasCaptionText"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="66dp"
             android:layout_marginBottom="16dp"
-            android:fontFamily="@font/arial"
-            android:text="This app uses the Google Maps API to provide mapping and directions functionality.\n© 2024 Google LLC. All rights reserved."
-            android:textSize="18sp" />
+            android:background="#99BBD2E7"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:text="This app uses the Google Maps API to provide mapping and directions functionality.\n© 2024 Google LLC. All rights reserved." />
 
         <!-- Separator -->
         <View
@@ -125,25 +127,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center">
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:fontFamily="@font/arial"
-                android:gravity="start"
                 android:text="Support"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                style="@style/ChristmasTitleText"
+                android:gravity="start" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/arial"
-                android:gravity="end"
                 android:text="contact@DineTrack.com"
-                android:textSize="20sp" />
+                style="@style/ChristmasTextView"
+                android:gravity="end" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

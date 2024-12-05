@@ -15,7 +15,7 @@
     <style name="CustomButton" parent="Widget.AppCompat.Button">
         <item name="android:background">@drawable/box_background</item>
         <item name="android:textColor">@color/colorTextPrimary</item>
-        <item name="android:fontFamily">@font/dancing_script_regular</item> <!-- Default font -->
+        <item name="android:fontFamily">@font/delius_regular</item> <!-- Default font -->
     </style>
 
     <!-- Custom EditText Style -->
@@ -23,7 +23,7 @@
         <item name="android:background">@drawable/box_background</item>
         <item name="android:textColor">@color/colorTextPrimary</item>
         <item name="android:textColorHint">@color/colorTextSecondary</item>
-        <item name="android:fontFamily">@font/dancing_script_regular</item>
+        <item name="android:fontFamily">@font/delius_regular</item>
     </style>
 
     <!-- Christmas Themed Button Style -->
@@ -32,7 +32,7 @@
         <item name="android:textColor">@color/colorBackground</item> <!-- White Text -->
         <item name="android:padding">12dp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:fontFamily">@font/dancing_script_bold</item>
+        <item name="android:fontFamily">@font/delius_regular</item>
     </style>
 
     <!-- Christmas Highlighted Button Style -->
@@ -41,7 +41,7 @@
         <item name="android:textColor">@color/colorTextPrimary</item> <!-- Primary Text Color -->
         <item name="android:padding">12dp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:fontFamily">@font/dancing_script_semibold</item>
+        <item name="android:fontFamily">@font/delius_regular</item>
     </style>
 
     <!-- Christmas Card View Style -->
@@ -54,10 +54,10 @@
 
     <!-- Christmas Themed TextView -->
     <style name="ChristmasTextView" parent="Widget.AppCompat.TextView">
-        <item name="android:textColor">@color/colorAccent</item> <!-- Festive Green -->
+        <item name="android:textColor">@color/colorHighlight</item> <!-- Festive Green -->
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">18sp</item>
-        <item name="android:fontFamily">@font/dancing_script_medium</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/delius_regular</item>
     </style>
 
     <!-- Large Christmas Title Text -->
@@ -65,13 +65,13 @@
         <item name="android:textColor">@color/colorHighlight</item> <!-- Metallic Gold -->
         <item name="android:textSize">24sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:fontFamily">@font/dancing_script_bold</item>
+        <item name="android:fontFamily">@font/delius_regular</item>
     </style>
 
     <!-- Small Christmas Caption Text -->
     <style name="ChristmasCaptionText" parent="Widget.AppCompat.TextView">
         <item name="android:textColor">@color/colorTextSecondary</item> <!-- Secondary Text Color -->
         <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">@font/dancing_script_regular</item>
+        <item name="android:fontFamily">@font/delius_regular</item>
     </style>
 </resources>
