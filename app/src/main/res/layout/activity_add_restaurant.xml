@@ -1,7 +1,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/third"
+    android:background="@drawable/secondv2"
     android:padding="16dp">
 
     <LinearLayout
@@ -28,16 +28,12 @@
 
             <!-- Title -->
             <TextView
+                style="@style/ChristmasTitleText"
                 android:id="@+id/tv_restaurant_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add Your new Restaurant"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/black"
+                android:text="Add A Restaurant"
                 android:layout_centerInParent="true"
-                android:fontFamily="@font/delius_regular"
-                android:background="#99BBD2E7"
                 android:padding="5dp"
                 />
         </RelativeLayout>
@@ -46,49 +42,45 @@
         <!-- Grouped Section -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="322dp"
+            android:layout_marginBottom="10dp"
             android:orientation="vertical"
-            android:padding="8dp"
-            android:background="#99BBD2E7"
-            android:layout_marginBottom="16dp">
+            android:padding="8dp">
 
             <!-- Restaurant Name -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
                 android:layout_marginBottom="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-                android:padding="8dp">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_app_logo" />
 
                 <TextView
+                    style="@style/ChristmasTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Restaurant Name"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/arial"
-                    android:textColor="@android:color/black"
-                    android:layout_marginEnd="8dp" />
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="Restaurant Name" />
 
                 <EditText
                     android:id="@+id/et_restaurant_name"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="Enter Restaurant name"
-                    android:background="@drawable/box_background"
-                    android:padding="10dp"
-                    android:fontFamily="@font/comic" />
+                    style="@style/UniformInputBox"
+                    android:hint="Enter Restaurant Name" />
             </LinearLayout>
 
             <!-- Address -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_marginBottom="12dp"
                 android:gravity="center_vertical"
-                android:layout_marginBottom="12dp">
+                android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="24dp"
@@ -96,33 +88,26 @@
                     android:src="@drawable/ic_location" />
 
                 <TextView
+                    style="@style/ChristmasTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Address"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/arial"
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="8dp"
-                    android:textColor="@android:color/black" />
+                    android:text="Address" />
 
                 <EditText
                     android:id="@+id/et_address"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="Enter Address"
-                    android:background="@drawable/box_background"
-                    android:padding="10dp"
-                    android:fontFamily="@font/comic" />
+                    style="@style/UniformInputBox"
+                    android:hint="Enter Address" />
             </LinearLayout>
 
             <!-- Phone Number -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_marginBottom="12dp"
                 android:gravity="center_vertical"
-                android:layout_marginBottom="12dp">
+                android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="24dp"
@@ -130,24 +115,17 @@
                     android:src="@drawable/ic_phone" />
 
                 <TextView
+                    style="@style/ChristmasTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Phone Number"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/arial"
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="8dp"
-                    android:textColor="@android:color/black" />
+                    android:text="Phone Number" />
 
                 <EditText
                     android:id="@+id/et_phone_number"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="Enter Phone number"
-                    android:background="@drawable/box_background"
-                    android:padding="10dp"
-                    android:fontFamily="@font/comic"
+                    style="@style/UniformInputBox"
+                    android:hint="Enter Phone Number"
                     android:inputType="phone" />
             </LinearLayout>
 
@@ -155,9 +133,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_marginBottom="12dp"
                 android:gravity="center_vertical"
-                android:layout_marginBottom="12dp">
+                android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="24dp"
@@ -165,33 +143,26 @@
                     android:src="@drawable/ic_description" />
 
                 <TextView
+                    style="@style/ChristmasTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Description"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/arial"
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="8dp"
-                    android:textColor="@android:color/black" />
+                    android:text="Description" />
 
                 <EditText
                     android:id="@+id/et_description"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="Add description"
-                    android:background="@drawable/box_background"
-                    android:padding="10dp"
-                    android:fontFamily="@font/comic" />
+                    style="@style/UniformInputBox"
+                    android:hint="Add Description" />
             </LinearLayout>
 
             <!-- Tags -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_marginBottom="12dp"
                 android:gravity="center_vertical"
-                android:layout_marginBottom="12dp">
+                android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="24dp"
@@ -199,24 +170,17 @@
                     android:src="@drawable/ic_tags" />
 
                 <TextView
+                    style="@style/ChristmasTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tags"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/arial"
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="8dp"
-                    android:textColor="@android:color/black" />
+                    android:text="Tags" />
 
                 <EditText
                     android:id="@+id/et_tags"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="Add tags (vegan, Mexican...)"
-                    android:background="@drawable/box_background"
-                    android:padding="10dp"
-                    android:fontFamily="@font/comic" />
+                    style="@style/UniformInputBox"
+                    android:hint="Add Tags (Vegan, Mexican...)" />
             </LinearLayout>
         </LinearLayout>
 
@@ -231,23 +195,20 @@
             android:orientation="vertical">
 
             <TextView
+                style="@style/ChristmasTitleText"
+                android:textColor="@color/Buckle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:fontFamily="@font/delius_regular"
                 android:gravity="center"
                 android:text="Rating"
-                android:textStyle="bold"
-                android:textColor="@android:color/black"
-                android:textSize="30sp"
-                android:background="#99BBD2E7"
+                android:textSize="22sp"
                 />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:background="#99BBD2E7"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -295,15 +256,16 @@
                 android:layout_height="52dp"
                 android:layout_marginEnd="16dp"
                 android:text="Cancel"
-                android:textColor="@android:color/white"
-                android:backgroundTint="@android:color/holo_red_light"/>
+                android:fontFamily="@font/delius_regular"
+                android:textColor="@color/OffWhite"
+                android:backgroundTint="@color/Santa"/>
 
             <Button
                 android:id="@+id/btn_save"
                 android:layout_width="110dp"
                 android:layout_height="52dp"
-                android:textColor="@android:color/white"
-                android:backgroundTint="@android:color/holo_blue_light"
+                android:textColor="@color/OffWhite"
+                android:backgroundTint="@color/BostonBlue"
                 android:text="Save"
                 />
         </LinearLayout>

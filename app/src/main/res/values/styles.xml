@@ -54,24 +54,35 @@
 
     <!-- Christmas Themed TextView -->
     <style name="ChristmasTextView" parent="Widget.AppCompat.TextView">
-        <item name="android:textColor">@color/colorHighlight</item> <!-- Festive Green -->
+        <item name="android:textColor">@color/Buckle</item> <!-- Festive Green -->
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">15sp</item>
         <item name="android:fontFamily">@font/delius_regular</item>
     </style>
 
     <!-- Large Christmas Title Text -->
     <style name="ChristmasTitleText" parent="Widget.AppCompat.TextView">
-        <item name="android:textColor">@color/colorHighlight</item> <!-- Metallic Gold -->
-        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/Downy</item>
+        <item name="android:textSize">30sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:fontFamily">@font/delius_regular</item>
     </style>
 
     <!-- Small Christmas Caption Text -->
     <style name="ChristmasCaptionText" parent="Widget.AppCompat.TextView">
-        <item name="android:textColor">@color/colorTextSecondary</item> <!-- Secondary Text Color -->
-        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/OffWhite</item> <!-- Secondary Text Color -->
+        <item name="android:textSize">12sp</item>
         <item name="android:fontFamily">@font/delius_regular</item>
     </style>
+
+    <style name="UniformInputBox" parent="Widget.AppCompat.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:background">@drawable/box_background</item>
+        <item name="android:fontFamily">@font/delius_regular</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+
 </resources>

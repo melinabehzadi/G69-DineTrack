@@ -7,15 +7,6 @@
     android:background="@drawable/restaurant_item_background"
     >
 
-    <!-- Thumbnail -->
-    <ImageView
-        android:id="@+id/iv_thumbnail"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginEnd="8dp"
-        android:src="@drawable/ic_placeholder"
-        />
-
     <!-- Content -->
     <LinearLayout
         android:layout_width="0dp"
@@ -29,6 +20,7 @@
             android:layout_height="wrap_content"
             android:text="Restaurant Name"
             android:textSize="16sp"
+            android:textStyle="bold"
             android:fontFamily="@font/delius_regular"
             android:textColor="@android:color/black" />
 
@@ -83,7 +75,7 @@
         android:layout_height="match_parent"
         android:text="Details"
         android:background="@drawable/box_background"
-        android:backgroundTint="@android:color/holo_blue_light"
+        android:backgroundTint="@color/SeaGreen"
         android:padding="8dp"
-        android:textColor="@android:color/black" />
+        android:textColor="@color/OffWhite" />
 </LinearLayout>
