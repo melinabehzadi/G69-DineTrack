@@ -15,4 +15,26 @@
 
     <!-- Festive Highlight -->
     <color name="colorHighlight">#FFD700</color> <!-- Metallic Gold -->
+
+    <!--    Third Background Image Colour Codes-->
+    <color name="KashmirBlue">#50638e</color>
+    <color name="Ghost">#c4c8d6</color>
+    <color name="Buccaneer">#582931</color>
+    <color name="RegentBlue">#9cbbe0</color>
+    <color name="PoloBlue">#94B7DB</color>
+    <color name="PickledBlue">#2d4858</color>
+
+    <!--    Second Background Image Colour Codes-->
+    <color name="SeaGreen">#0b4a6f</color>
+    <color name="OffWhite">#cedde6</color>
+    <color name="Downy">#78b5d3</color>
+    <color name="BostonBlue">#4898be</color>
+    <color name="Belt">#130e11</color>
+    <color name="Deer">#877147</color>
+    <color name="Buckle">#eece71</color>
+    <color name="Santa">#b64748</color>
+
+
+
+
 </resources>

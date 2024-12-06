@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="@drawable/third">
+    android:background="@drawable/secondv2">
 
     <!-- Dine Track Logo -->
     <ImageView
@@ -24,6 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="My Personal Restaurant Guide"
+        android:textAlignment="center"
         style="@style/ChristmasTitleText"
         app:layout_constraintTop_toBottomOf="@id/app_logo"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,31 +32,36 @@
         android:layout_marginTop="16dp" />
 
     <!-- Favorites, About, Add Buttons -->
+
+    <!-- Search Bar -->
     <LinearLayout
         android:id="@+id/button_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_marginTop="28dp"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/app_subtitle"
-        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"> <!-- Adjust this value to move buttons up or down -->
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/app_subtitle">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_marginHorizontal="12dp"
             android:gravity="center"
-            android:layout_marginHorizontal="12dp">
+            android:orientation="vertical">
 
             <ImageButton
                 android:id="@+id/btn_favorites"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:backgroundTint="@android:color/holo_blue_light"
-                android:scaleType="centerInside"
+                android:background="@drawable/round_button"
+                android:scaleType="fitCenter"
+                android:padding="10dp"
                 android:src="@drawable/ic_star" />
+
 
             <TextView
                 style="@style/ChristmasTextView"
@@ -63,23 +69,23 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="Favorites"
-                android:background="#99BBD2E7"
-                android:textColor="@android:color/black"/>
+                android:textColor="@color/BostonBlue" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_marginHorizontal="12dp"
             android:gravity="center"
-            android:layout_marginHorizontal="12dp">
+            android:orientation="vertical">
 
             <ImageButton
                 android:id="@+id/btn_about"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:backgroundTint="@android:color/holo_blue_light"
-                android:scaleType="centerInside"
+                android:background="@drawable/round_button"
+                android:scaleType="fitCenter"
+                android:padding="5dp"
                 android:src="@drawable/ic_info" />
 
             <TextView
@@ -88,24 +94,23 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="About"
-                android:background="#99BBD2E7"
-                android:textColor="@android:color/black"
-/>
+                android:textColor="@color/BostonBlue" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_marginHorizontal="12dp"
             android:gravity="center"
-            android:layout_marginHorizontal="12dp">
+            android:orientation="vertical">
 
             <ImageButton
                 android:id="@+id/btn_add"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:backgroundTint="@android:color/holo_blue_light"
-                android:scaleType="centerInside"
+                android:background="@drawable/round_button"
+                android:scaleType="fitCenter"
+                android:padding="10dp"
                 android:src="@drawable/ic_add" />
 
             <TextView
@@ -114,12 +119,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="Add"
-                android:background="#99BBD2E7"
-                android:textColor="@android:color/black" />
+                android:textColor="@color/BostonBlue" />
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Search Bar -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
