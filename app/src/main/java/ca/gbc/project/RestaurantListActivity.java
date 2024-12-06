@@ -71,22 +71,18 @@ public class RestaurantListActivity extends AppCompatActivity {
         btnFilter.setOnClickListener(v -> loadTags());
     }
 
-
-
     private void handleIncomingQuery() {
         String query = getIntent().getStringExtra("query");
         if (query != null && !query.isEmpty()) {
             etSearch.setText(query);
-            filteredList.clear();
 
-            for (Restaurant restaurant : restaurantList) {
-                if (restaurant.getName().toLowerCase().contains(query.toLowerCase()) ||
-                        restaurant.getTags().toLowerCase().contains(query.toLowerCase())) {
-                    filteredList.add(restaurant);
-                }
-            }
+            // Use the DBHandler to search for restaurants just like handleSearch()
+            DBHandler dbHandler = new DBHandler(this);
+            filteredList = dbHandler.searchRestaurants(query.toLowerCase());
 
-            adapter.notifyDataSetChanged();
+            // Update the adapter and RecyclerView
+            adapter = new RestaurantAdapter(filteredList, this);
+            recyclerView.setAdapter(adapter);
         }
     }
 
@@ -208,7 +204,10 @@ public class RestaurantListActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        populateRestaurantList();
+        // Only repopulate if there's no active search query
+        if (etSearch.getText().toString().trim().isEmpty()) {
+            populateRestaurantList();
+        }
     }
 
     @Override
