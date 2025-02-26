@@ -71,10 +71,10 @@ This app leverages the Google Maps API to provide seamless mapping and direction
 
 For inquiries or feedback, please contact any of the developers via email.
 
-Oscar - oscarpiediaz@gmail.com
-Valeria - valeria.arce@live.ca
-Mobina - mobinasadat.zargary@georgebrown.ca
-Melina - melinabehzadi40@gmail.com
+- Oscar - oscarpiediaz@gmail.com
+- Valeria - valeria.arce@live.ca
+- Mobina - mobinasadat.zargary@georgebrown.ca
+- Melina - melinabehzadi40@gmail.com
 ---
 
 Enjoy tracking your culinary adventures with DineTrack! 🍽🎉
