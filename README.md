@@ -33,44 +33,25 @@ Given the timing of our project completion in December, our team designed the ap
 - **Maps and GPS:** Integrated Google Maps API for accurate navigation and location services.
 - **UI/UX Design:** XML layouts with custom components for a responsive and visually appealing interface.
 
-📸 Screenshots
+📸 **Screenshots**
 
-Landing Page
+### Landing Page
+<img src="Readme_Assets/Landing_Page.png" width="250"/>
 
-![Landing Page](Readme_Assets/Landing_Page.png)
+### Favorites Page
+<img src="Readme_Assets/Favorites_Page.png" width="250"/>
 
-Favorites Page
+### Add Restaurant
+<img src="Readme_Assets/Add_Restaurant_Page.png" width="250"/>
 
-![UML Diagram](Readme_Assets/Favourites_Page.png)
+### Filter Options
+<img src="Readme_Assets/Filter_Tab.png" width="250"/>
 
-Add Restaurant
+### Restaurant Details
+<img src="Readme_Assets/Restaurant_Details_Page.png" width="250"/>
 
-![UML Diagram](Readme_Assets/Add_Restaurant_Page.png)
-
-
-
-
-
-
-
-Filter Options
-
-![UML Diagram](Readme_Assets/Filter_Tab.png)
-
-Restaurant Details
-
-![UML Diagram](Readme_Assets/Restaurant_Details_Page.png)
-
-About the Team
-
-![UML Diagram](Readme_Assets/Team_About_Page.png)
-
-
-
-
-
-
-
+### About the Team
+<img src="Readme_Assets/Team_About_Page.png" width="250"/>
 
 
 ## 👥 Team Members
