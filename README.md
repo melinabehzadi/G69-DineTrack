@@ -33,7 +33,7 @@ Given the timing of our project completion in December, our team designed the ap
 - **Maps and GPS:** Integrated Google Maps API for accurate navigation and location services.
 - **UI/UX Design:** XML layouts with custom components for a responsive and visually appealing interface.
 
-📸 **Screenshots**
+## 📸 **Screenshots**
 
 ### Landing Page
 <img src="Readme_Assets/Landing_Page.png" width="250"/>
