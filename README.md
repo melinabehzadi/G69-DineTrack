@@ -39,7 +39,7 @@ Given the timing of our project completion in December, our team designed the ap
 <img src="Readme_Assets/Landing_Page.png" width="250"/>
 
 ### Favorites Page
-<img src="Readme_Assets/Favorites_Page.png" width="250"/>
+<img src="Readme_Assets/Favourites_Page.png" width="250"/>
 
 ### Add Restaurant
 <img src="Readme_Assets/Add_Restaurant_Page.png" width="250"/>
